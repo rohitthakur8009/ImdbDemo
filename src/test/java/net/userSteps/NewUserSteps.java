@@ -5,6 +5,7 @@ import com.thoughtworks.selenium.webdriven.commands.Close;
 import junit.framework.Assert;
 import net.Pages.BreakingBadDetailsPage;
 import net.Pages.CreateNewAccountPage;
+import net.Pages.EmailPage;
 import net.Pages.HomePage;
 import net.Pages.SignInOptionsPage;
 import net.Pages.TopTvChartsPage;
@@ -18,6 +19,7 @@ public class NewUserSteps {
 	BreakingBadDetailsPage breakingBadDetailsPage;
 	SignInOptionsPage signInOptionsPage;
 	CreateNewAccountPage createNewAccountPage;
+	EmailPage emailPage;
 	
 	@Step
 	 public void open_home_page()
@@ -95,7 +97,14 @@ public class NewUserSteps {
 
 
 	public void completeEmailVerification() {
-		// TODO Auto-generated method stub
+		
+		emailPage.open();
+		
+		emailPage.loginwithMailID();
+		
+		Assert.assertTrue(emailPage.checkVerificationEmail());
+		
+		emailPage.clickVerificationLink();
 		
 	}
 	

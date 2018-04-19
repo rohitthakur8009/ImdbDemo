@@ -46,6 +46,8 @@ public class CreateNewAccountDataDrivenRunner {
 		
 		newUserSteps.verify_UserLoggedOut();
 		
+		newUserSteps.completeEmailVerification();
+		
 	}
 
 }
