@@ -7,14 +7,14 @@ public class UserData {
 	
 	public UserData generateUserData()
 	{
-		int randomFactor = (int) Math.random();
+		int randomFactor = (int) (Math.random() * System.currentTimeMillis()) % 9999;
 	
 		UserData userData = new UserData();
 		String name = (new Names()).getName(randomFactor);
 		
 		userData.setUserName(name);
 		userData.setEmail(name+randomFactor+"@yopmail.com");
-		userData.setPassword("Ab%"+randomFactor);
+		userData.setPassword("Abcd123%"+randomFactor);
 		return userData;
 	}
 	

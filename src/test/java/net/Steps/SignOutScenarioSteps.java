@@ -10,6 +10,13 @@ public class SignOutScenarioSteps {
 	@Steps
 	NewUserSteps newUserSteps;
 	
+	
+	@When("^I login with Registered User$")
+	public void i_Login_to_IMDB()  {
+    
+		newUserSteps.login_to_IMBb();
+	}
+	
 
 	@When("^I Sign Out$")
 	public void i_Sign_Out_With_IMDB()  {
@@ -17,7 +24,7 @@ public class SignOutScenarioSteps {
 		newUserSteps.signOut();
 	}
 	
-	@Then("^I am Sign Out Successfully$")
+	@Then("^I am Signed Out Successfully$")
 	public void i_am_Sign_Out_Successfully() {
 	    newUserSteps.verify_UserLoggedOut();
 	}

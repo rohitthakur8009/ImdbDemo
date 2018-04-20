@@ -11,6 +11,8 @@ Feature: Create a new User Registration
     Then I am able to see Successfully Register
 
   Scenario: User able to login with Created Id
-    Given I am on Home Page
-    When I Sign Out
+    Given I am on the Home Page
+    When I go to User Sign In Screen
+    And I login with Registered User
+    And I Sign Out
     Then I am Signed Out Successfully

@@ -8,6 +8,7 @@ import net.Pages.CreateNewAccountPage;
 import net.Pages.EmailPage;
 import net.Pages.HomePage;
 import net.Pages.SignInOptionsPage;
+import net.Pages.SignInPage;
 import net.Pages.TopTvChartsPage;
 import net.Utils.UserData;
 import net.thucydides.core.annotations.Step;
@@ -20,6 +21,7 @@ public class NewUserSteps {
 	SignInOptionsPage signInOptionsPage;
 	CreateNewAccountPage createNewAccountPage;
 	EmailPage emailPage;
+	SignInPage signInPage;
 	
 	@Step
 	 public void open_home_page()
@@ -86,7 +88,7 @@ public class NewUserSteps {
 
 
 	public void verify_UserLoggedOut() {
-		Assert.assertFalse(homePage.verifyUserLoginDetails());
+		Assert.assertFalse("User Should Be Login",homePage.verifyUserLoginDetails());
 	}
 
 
@@ -106,6 +108,18 @@ public class NewUserSteps {
 		
 		emailPage.clickVerificationLink();
 		
+	}
+
+
+	public void login_to_IMBb() {
+		//Verify user is not Logged In Before Performing Login
+		if(!verifyUserLoginDetails())
+		{
+		signInOptionsPage.goto_LoginPage();
+		
+		signInPage.login_with_SessionUser();			
+		}
+		Assert.assertTrue("User Should Be Login",homePage.verifyUserLoginDetails());
 	}
 	
 	

@@ -12,7 +12,7 @@ import net.userSteps.NewUserSteps;
 import org.junit.runner.RunWith;
 
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom(value="src/test/resources/data/logindata.csv")
+@UseTestDataFrom(value="src/test/resources/data/loginData.csv")
 public class CreateNewAccountDataDrivenRunner {
 
 	UserData userData;

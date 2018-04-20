@@ -52,12 +52,14 @@ public class HomePage extends PageObject {
 
 	public boolean verifyUserLoginDetails() {
 		UserData sessionData = Serenity.sessionVariableCalled("user"); 
-		
-		if(!loginUser.isCurrentlyVisible())
+
+		waitForTitleToAppear("IMDb - Movies, TV and Celebrities - IMDb");
+			if(!loginUser.isCurrentlyVisible())
 			 return false;
 		 else
 			 if(!(loginUser.getText().equals(sessionData.getUserName())))
 				 return false;
+			
 	return true;
 	}
 
